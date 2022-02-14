@@ -1,13 +1,14 @@
-<template>
-  <div class="container">
-    
-    <img class="logo" alt="logo" src="./assets/logo.png">
-    <FastCast msg="Let's make hot metal"/>
-    </div>
-  
-</template>
 
+// APP TEMPLATE
+<template>
+ 
+    <FastCast />
+  </template>
+
+
+// JAVASCRIPT
 <script>
+
 import FastCast from './components/FastCast.vue'
 
 export default {
@@ -18,6 +19,9 @@ export default {
   }
 }
 </script>
+
+
+// STYLES
 
 <style>
 .container {
