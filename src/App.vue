@@ -1,48 +1,134 @@
-
-// APP TEMPLATE
 <template>
- 
-    <FastCast />
-  </template>
+  <div id="app">
+    <div class="container">
+      <img src="./assets/logo.png" alt="logo" class="logo">
 
+       <br>
+      <input
+      id="waxWeight"
+      class="wax-weight"
+      v-model.number="waxWeight"
+      placeholder="Wax Weight"
+    />
+    <br/>
+      <br />
+    <input
+      name="radio"
+      class="radio"
+      type="radio"
+      id="rRbutton"
+      v-model.number="specificGravity"
+      value="11.5"
+    />
+    <label for="rButton1">Bronze</label>
+    <br>    <br/>
 
-// JAVASCRIPT
+    <input
+      name="radio"
+      class="radio"
+      type="radio"
+      id="rRbutton"
+      v-model.number="specificGravity"
+      value="10.3"
+    />
+    <label for="rButton1">Sterling Silver</label>
+    <br />    <br/>
+
+     <input
+      name="radio"
+      class="radio"
+      type="radio"
+      id="rRbutton"
+      v-model.number="specificGravity"
+      value="11.5"
+    />
+    <label for="rButton1">White Gold 14K</label>
+
+     <br>    <br/>
+
+     <input
+      name="radio"
+      class="radio"
+      type="radio"
+      id="rRbutton"
+      v-model.number="specificGravity"
+      value="11.5"
+    />
+    <label for="rButton1">White Gold 18K</label>
+
+    <br>    <br/>
+
+     <input
+      name="radio"
+      class="radio"
+      type="radio"
+      id="rRbutton"
+      v-model.number="specificGravity"
+      value="11.5"
+    />
+    <label for="rButton1">Yellow Gold 14K</label>
+
+     <br>    <br/>
+     <input
+      name="radio"
+      class="radio"
+      type="radio"
+      id="rRbutton"
+      v-model.number="specificGravity"
+      value="11.5"
+    />
+    <label for="rButton1">Yellow Gold 18K</label>
+    
+    
+    <br> <br>
+    <input
+      id="buttonSize"
+      class="button-size"
+      v-model.number="buttonSize"
+      placeholder="Button Size"
+    />       
+    <br> 
+    <label >Button Size</label>
+    <br>
+
+    
+  <br> <br>
+  <button @click="calculateMetalWeight">Calculate</button>
+    <p>{{ metalWeight.toFixed(2) }} gm</p>
+
+    </div>
+    
+  </div>
+</template>
+
 <script>
-
-import FastCast from './components/FastCast.vue'
-
 export default {
-  // Options Object
-  name: 'App',
-  components: {
-    FastCast
-  }
-}
+  name: "App",
+
+  methods: {
+    calculateMetalWeight() {
+      this.metalWeight =
+        (this.waxWeight + this.waxWeight * this.buttonSize) *
+        this.specificGravity;
+    },
+  },
+
+  // DATA
+  data() {
+    return {
+      waxWeight: "",
+      metalType: "",
+      buttonSize: 0.1,
+      metalWeight: "",
+      specificGravity: "",
+    };
+  },
+};
 </script>
 
-
-// STYLES
-
 <style>
-.container {
-  border: solid gray;
-  max-width: 26rem;
-  display:  block;
-justify-content: center;
-}
-.logo {
-  max-width: 12rem;
-  opacity: 95%;
-  display: block;
-  margin-left: 8rem;
-  padding-top: 2rem;
-}
-p {
-  font-size: 1.5rem;
-  text-align: center;
-};
 #app {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
