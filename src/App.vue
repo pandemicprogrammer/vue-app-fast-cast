@@ -1,24 +1,37 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">  
     <div class="container">
       <img src="./assets/logo.png" alt="logo" class="logo">
 
-       <br>
+          <p>{{ parseFloat(metalWeight).toFixed(2) }} grams</p>
+          <p>{{ parseFloat(pennyWeight).toFixed(2) }} pennyweight</p>
+
+       <button @click="calculateMetalWeight">Calculate</button>
+
+      <br> <br>
+
       <input
       id="waxWeight"
       class="wax-weight"
       v-model.number="waxWeight"
-      placeholder="Wax Weight"
+      placeholder="0.00 Wax Weight"
     />
-    <br/>
-      <br />
+    <br>
     <input
+      id="buttonSize"
+      class="button-size"
+      v-model.number="buttonSize"
+      placeholder="0.00 Button Size"
+    />    
+      <br /> <br>
+   
+   <input
       name="radio"
       class="radio"
       type="radio"
       id="rRbutton"
       v-model.number="specificGravity"
-      value="11.5"
+      value="8.8"
     />
     <label for="rButton1">Bronze</label>
     <br>    <br/>
@@ -29,7 +42,7 @@
       type="radio"
       id="rRbutton"
       v-model.number="specificGravity"
-      value="10.3"
+      value="10.4"
     />
     <label for="rButton1">Sterling Silver</label>
     <br />    <br/>
@@ -40,7 +53,7 @@
       type="radio"
       id="rRbutton"
       v-model.number="specificGravity"
-      value="11.5"
+      value="13.7"
     />
     <label for="rButton1">White Gold 14K</label>
 
@@ -52,7 +65,7 @@
       type="radio"
       id="rRbutton"
       v-model.number="specificGravity"
-      value="11.5"
+      value="15.7"
     />
     <label for="rButton1">White Gold 18K</label>
 
@@ -64,7 +77,7 @@
       type="radio"
       id="rRbutton"
       v-model.number="specificGravity"
-      value="11.5"
+      value="13.4"
     />
     <label for="rButton1">Yellow Gold 14K</label>
 
@@ -75,26 +88,13 @@
       type="radio"
       id="rRbutton"
       v-model.number="specificGravity"
-      value="11.5"
+      value="15.5"
     />
     <label for="rButton1">Yellow Gold 18K</label>
     
     
     <br> <br>
-    <input
-      id="buttonSize"
-      class="button-size"
-      v-model.number="buttonSize"
-      placeholder="Button Size"
-    />       
-    <br> 
-    <label >Button Size</label>
-    <br>
 
-    
-  <br> <br>
-  <button @click="calculateMetalWeight">Calculate</button>
-    <p>{{ metalWeight.toFixed(2) }} gm</p>
 
     </div>
     
@@ -110,17 +110,19 @@ export default {
       this.metalWeight =
         (this.waxWeight + this.waxWeight * this.buttonSize) *
         this.specificGravity;
+
+        this.pennyWeight = this.metalWeight * 0.643015;
     },
   },
 
   // DATA
   data() {
     return {
-      waxWeight: "",
-      metalType: "",
-      buttonSize: 0.1,
-      metalWeight: "",
       specificGravity: "",
+      buttonSize: 0.1,
+      metalWeight: "",  
+      waxWeight: "",
+      pennyWeight: ""
     };
   },
 };
@@ -134,5 +136,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+</style>
+
+<style>
+@font-face {
+  font-family: "Patrick";
+  src: local("Patrick"),
+   url(./assets/fonts/PatrickHandSC-Regular.ttf) format("truetype");
 }
 </style>

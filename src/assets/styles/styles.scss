@@ -1,13 +1,35 @@
-p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: purple;
+
+label {
+    font-family: 'Patrick', sans-serif;
+    font-size: large;
 }
 
+input {
+    font-family: 'Patrick', sans-serif;
+    font-size: large;
+}
+
+button {
+    font-family: 'Patrick', sans-serif;
+    font-size: large;
+}
+
+.app {
+    max-width: 26rem;
+
+}
 .container {
-    text-align: center;
-    display: block;
+    background-image: linear-gradient(to bottom, #041D33, #064663);    
+    max-width: 26rem;
+    padding: 2rem;
+    border-radius: .5rem;
+    color: white;
+    font-size: large;
+    font-family: 'Patrick', sans-serif;
+
 }
 
 .logo   {
-    width: 22rem;
+    width: 10rem;
+    margin-bottom: -2rem;
 }
