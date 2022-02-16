@@ -16,7 +16,8 @@
       v-model.number="waxWeight"
       placeholder="0.00 Wax Weight"
     />
-    <br>
+    <br>     <br>
+
     <input
       id="buttonSize"
       class="button-size"
