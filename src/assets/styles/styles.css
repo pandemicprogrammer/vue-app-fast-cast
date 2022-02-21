@@ -1,3 +1,7 @@
+.hide {
+  display: none;
+}
+
 label {
   font-family: "Patrick", sans-serif;
   font-size: large;
@@ -11,6 +15,8 @@ input {
 button {
   font-family: "Patrick", sans-serif;
   font-size: large;
+  display: block;
+  margin-left: 38%;
 }
 
 .app {

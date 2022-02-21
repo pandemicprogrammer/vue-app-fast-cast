@@ -3,10 +3,15 @@
     <div class="container">
       <img src="./assets/logo.png" alt="logo" class="logo">
 
-          <p>{{ parseFloat(metalWeight).toFixed(2) }} grams</p>
-          <p>{{ parseFloat(pennyWeight).toFixed(2) }} pennyweight</p>
+         <!-- RESULT -->
+          <p id="result" class="hide">
+            {{ parseFloat(metalWeight).toFixed(2) }} grams <br>
 
-       <button @click="calculateMetalWeight">Calculate</button>
+            {{ parseFloat(pennyWeight).toFixed(2) }} pennyweight
+          </p>
+         
+
+       <button @click="clicked">Calculate</button>
 
       <br> <br>
 
@@ -107,13 +112,30 @@ export default {
   name: "App",
 
   methods: {
+    
+    clicked() {
+      this.calculateMetalWeight();
+      this.toggleVisible();
+
+      
+    },
     calculateMetalWeight() {
       this.metalWeight =
         (this.waxWeight + this.waxWeight * this.buttonSize) *
         this.specificGravity;
 
-        this.pennyWeight = this.metalWeight * 0.643015;
-    },
+        this.pennyWeight = this.metalWeight * 0.643015
+        },
+
+    toggleVisible() {
+      const target = document.getElementById("result");
+
+      if (target.style.display !== "block") {
+        target.style.display = "block";
+        } 
+      }
+    
+  
   },
 
   // DATA
